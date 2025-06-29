@@ -20,7 +20,6 @@ interface IPApiResponse {
     status: string;
 }
 
-// Interface for the response from the FreeGeoIP API
 interface FreeGeoIPResponse {
     latitude: number;      // Latitude of the detected IP location
     longitude: number;     // Longitude of the detected IP location
@@ -29,7 +28,6 @@ interface FreeGeoIPResponse {
     country_name: string;  // Country name
 }
 
-// Helper function to determine if an IP address is local/private
 function isLocalIP(ip: string): boolean {
     // Remove IPv6-mapped IPv4 prefix if present
     const cleanIP = ip.replace(/^::ffff:/, '');

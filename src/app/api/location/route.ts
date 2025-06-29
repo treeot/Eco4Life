@@ -132,7 +132,6 @@ export async function GET(request: Request) {
             }, { status: 200 });
         }
 
-        // Try APIs in order of preference (most accurate first)
         const apis = [tryIPInfo, tryIPApi, tryFreeGeoIP];
 
         for (const apiCall of apis) {
@@ -150,7 +149,6 @@ export async function GET(request: Request) {
             }
         }
 
-        // All APIs failed
         return NextResponse.json({
             lat: 0,
             lng: 0,

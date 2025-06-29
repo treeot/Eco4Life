@@ -1,11 +1,27 @@
 # 🌿 EcoTherapy Hackathon Project: Eco4Life
 
-Hello! We’re **Team TECHnical difficulties**, consisting of **Ryan Lin, Raymond Chen, Danial Armiyaev, and Benson Zhang**, and we are addressing the problem for ***Ecotherapy***.
+[![Demo](https://img.shields.io/badge/Demo-Live-green)](https://eco4life.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-15+-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue)](https://www.typescriptlang.org/)
+
+Hello! We’re **Team TECHnical difficulties**, consisting of **Benson Zhang, Ryan Lin, Raymond Chen, and Danial Armiyaev**, and we are addressing the problem for ***Ecotherapy***.
 
 ---
+
+## 📋 Table of Contents
+- [🎯 Our Inspiration](#our-inspiration)
+- [✨ What It Does](#what-it-does)
+- [🛠 How We Built It](#how-we-built-it)
+- [⚡ Key Features](#key-features)
+- [🚧 Challenges We Ran Into](#challenges-we-ran-into)
+- [🏆 Accomplishments](#accomplishments-that-were-proud-of)
+- [🚀 What's Next](#whats-next)
+
+---
+
 ## Our Inspiration
 
-We found inspiration for this project through the experiences we’ve faced in our day-to-day lives.  
+We found inspiration for this project through the experiences we’ve faced in our day-to-day lives.
 
 
 In high school, many students find themselves needing to balance coursework, extracurricular activities, and familial responsibilities. As a result, people can feel **burnt out** from long hours of work, leading to **isolation** from the outside world.
@@ -35,7 +51,6 @@ Our solution offers:
 
 - **Nature Route Finder** (Google Maps API Integration):  
   When the user feels ready, our project can guide them to local nature-rich locations such as **parks and community gardens**. Users can access a list of nearby outdoor spaces, which makes nature more accessible, even in urban areas.
-
 
 - **Mental Wellness Focus**:  
   The platform is designed to break the cycle of isolation and depression by offering users a **safe and supportive environment** and a tangible path back to the natural world.

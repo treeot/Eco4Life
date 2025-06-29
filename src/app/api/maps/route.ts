@@ -40,7 +40,7 @@ export async function GET(request: Request) {
                         radius: 5000
                     }
                 },
-                maxResultCount: 30
+                maxResultCount: 20
             }),
         });
 

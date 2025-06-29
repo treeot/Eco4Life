@@ -35,7 +35,7 @@ export const fetchNearbyLocations = async (
     lng: number
 ): Promise<textSearchParameters[]> => {
     try {
-        const query = encodeURIComponent('parks,gardens,forests');
+        const query = encodeURIComponent('parks');
         const placesResponse = await fetch(`/api/maps?q=${query}&lat=${lat}&lng=${lng}`);
 
         if (!placesResponse.ok) {

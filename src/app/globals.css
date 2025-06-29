@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+}
+
+.place-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.place-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }

@@ -4,7 +4,10 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15+-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue)](https://www.typescriptlang.org/)
 
-Hello! We’re **Team TECHnical difficulties**, consisting of **Benson Zhang, Ryan Lin, Raymond Chen, and Danial Armiyaev**, and we are addressing the problem for ***Ecotherapy***.
+Hello! We’re **Team TECHnical difficulties**, consisting of **Ryan Lin, Raymond Chen, Danial Armiyaev, and Benson Zhang**. We attend Brooklyn Technical High School. We are addressing the problem for ***Ecotherapy*** under the category Health and Wellness. Our project, Eco4Life, helps people overcome isolation by guiding them to nearby parks and gardens, while offering emotional support through our AI, Sarah, to make reconnecting with nature safe and uplifting.
+
+
+Below will be additional information that you can use to follow along
 
 ---
 

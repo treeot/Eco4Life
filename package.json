@@ -1,5 +1,7 @@
 {
-  "name": "therapysite",
+  "name": "eco4life",
+  "description": "A therapy site built with Next.js and Tailwind CSS",
+  "author": "treeot (Benson Zhang)",
   "version": "0.1.0",
   "private": true,
   "scripts": {

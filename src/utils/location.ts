@@ -30,12 +30,13 @@ export const getFallbackLocation = async (
     }
 };
 
-export const fetchNearbyParks = async (
+export const fetchNearbyLocations = async (
     lat: number,
     lng: number
 ): Promise<textSearchParameters[]> => {
     try {
-        const placesResponse = await fetch(`/api/maps?q=parks&lat=${lat}&lng=${lng}`);
+        const query = encodeURIComponent('parks,gardens,forests');
+        const placesResponse = await fetch(`/api/maps?q=${query}&lat=${lat}&lng=${lng}`);
 
         if (!placesResponse.ok) {
             throw new Error(`HTTP error! status: ${placesResponse.status}`);

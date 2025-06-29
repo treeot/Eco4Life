@@ -47,7 +47,7 @@ export default function Home() {
                     <div
                         className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
                         style={{
-                          backgroundImage: `url("./yoga.jpg")`
+                          backgroundImage: `url("./yoga.jpg")` // Sets the card's background image
                         }}
                     />
                     <div>
@@ -61,7 +61,7 @@ export default function Home() {
                     <div
                         className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
                         style={{
-                          backgroundImage: `url("./woods.jpg")`
+                          backgroundImage: `url("./woods.jpg")` // Sets the card's background image
                         }}
                     />
                     <div>
@@ -75,7 +75,7 @@ export default function Home() {
                     <div
                         className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
                         style={{
-                          backgroundImage: `url("./meditate.png")`
+                          backgroundImage: `url("./meditate.png")` // Sets the card's background image
                         }}
                     />
                     <div>

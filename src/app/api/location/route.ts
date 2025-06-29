@@ -20,31 +20,38 @@ interface IPApiResponse {
     status: string;
 }
 
+// Interface for the response from the FreeGeoIP API
 interface FreeGeoIPResponse {
-    latitude: number;
-    longitude: number;
-    city: string;
-    region_name: string;
-    country_name: string;
+    latitude: number;      // Latitude of the detected IP location
+    longitude: number;     // Longitude of the detected IP location
+    city: string;          // City name
+    region_name: string;   // Region or state name
+    country_name: string;  // Country name
 }
 
+// Helper function to determine if an IP address is local/private
 function isLocalIP(ip: string): boolean {
+    // Remove IPv6-mapped IPv4 prefix if present
     const cleanIP = ip.replace(/^::ffff:/, '');
 
+    // Check for localhost or loopback addresses
     if (cleanIP === '127.0.0.1' || cleanIP === '::1' || cleanIP === 'localhost') {
         return true;
     }
 
+    // Split the IP into its octets for further checks
     const parts = cleanIP.split('.').map(Number);
     if (parts.length !== 4) return false;
 
-    if (parts[0] === 10) return true;
-    if (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) return true;
-    if (parts[0] === 192 && parts[1] === 168) return true;
+    // Check for private IP address ranges
+    if (parts[0] === 10) return true; // 10.0.0.0/8
+    if (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) return true; // 172.16.0.0/12
+    if (parts[0] === 192 && parts[1] === 168) return true; // 192.168.0.0/16
 
     return false;
 }
 
+// Attempt to get geolocation info from ipinfo.io for a given client IP
 async function tryIPInfo(clientIP: string) {
     const response = await fetch(
         `https://ipinfo.io/${clientIP}/json?token=${process.env.IPINFO_TOKEN}`,

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import {fetchNearbyParks, getFallbackLocation} from "@/utils/location";
+import {fetchNearbyLocations, getFallbackLocation} from "@/utils/location";
 import { textSearchParameters } from '@/utils/types';
 import {formatDuration} from "@/lib/utils";
 
@@ -22,32 +22,43 @@ export default function GoogleMapWithUserStart() {
 
     const getUserLocationFromBrowser = (): Promise<{ lat: number; lng: number }> => {
         return new Promise((resolve, reject) => {
+            // Check if the browser supports geolocation
             if (!navigator.geolocation) {
+                // If not supported, reject the promise with an error
                 reject(new Error('Geolocation not supported'));
                 return;
             }
 
+            // Request the user's current position
             navigator.geolocation.getCurrentPosition(
                 (position) => {
+                    // On success, update status and resolve with coordinates
                     setLocationStatus('granted');
                     resolve({
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
+                        lat: position.coords.latitude, // Latitude from geolocation
+                        lng: position.coords.longitude // Longitude from geolocation
                     });
                 },
                 () => {
+                    // On error (e.g., user denies), update status and reject
                     setLocationStatus('denied');
                     reject(new Error('Location denied'));
                 },
-                { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+                {
+                    enableHighAccuracy: true, // Request high accuracy if possible
+                    timeout: 10000,           // Wait up to 10 seconds
+                    maximumAge: 60000         // Accept a cached position up to 1 minute old
+                }
             );
         });
     };
 
+    // Open the map modal for a selected place
     const openMapModal = (place: textSearchParameters) => {
         setSelectedPlace(place);
     };
 
+    // Close the map modal
     const closeMapModal = () => {
         setSelectedPlace(null);
     };
@@ -83,7 +94,7 @@ export default function GoogleMapWithUserStart() {
 
             setUserLocation(location);
 
-            const sortedPlaces = await fetchNearbyParks(location.lat, location.lng);
+            const sortedPlaces = await fetchNearbyLocations(location.lat, location.lng);
             setPlaces(sortedPlaces);
             setCurrentPage(1);
         };
@@ -125,11 +136,8 @@ export default function GoogleMapWithUserStart() {
                 {userLocation && (
                     <div className="space-y-6">
                         <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-                            <p className="text-gray-700 dark:text-gray-300 mb-2">
-                                <span className="font-medium">Your location:</span> {userLocation.lat.toFixed(2)}, {userLocation.lng.toFixed(2)}
-                            </p>
                             <p className="text-gray-700 dark:text-gray-300">
-                                <span className="font-medium">Found:</span> {places.length} parks
+                                <span className="font-medium">Found:</span> {places.length} places
                             </p>
                         </div>
 
@@ -210,7 +218,7 @@ export default function GoogleMapWithUserStart() {
                                 </div>
                                 <div className="text-center">
                                     <span className="text-gray-600 dark:text-gray-400">
-                                        Showing {startIndex + 1}-{Math.min(endIndex, places.length)} of {places.length} parks
+                                        Showing {startIndex + 1}-{Math.min(endIndex, places.length)} of {places.length} places
                                     </span>
                                 </div>
                             </div>
